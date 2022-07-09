@@ -1,4 +1,4 @@
-module git.khuedoan.com/ops/homelab
+module git.timoriski.fi/ops/homelab
 
 go 1.19
 
