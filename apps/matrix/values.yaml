@@ -30,6 +30,17 @@ dendrite:
     server_name: &backend_host matrix.timoriski.fi
     metrics:
       enabled: true
+  envFrom:
+    - secretRef:
+        name: matrix-secrets
+  clientapi:
+    config:
+      registration_disabled: "false"
+      registration_shared_secret: $MATRIX_REGISTRATION_SECRET
+      captcha:
+        enabled: true
+        recaptcha_public_key: $MATRIX_CAPTCHA_SITE_KEY
+        recaptcha_private_key: $MATRIX_CAPTCHA_SITE_SECRET
   database:
     max_open_conns: 100
     max_idle_conns: 2
