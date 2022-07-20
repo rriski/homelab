@@ -14,6 +14,7 @@ repos:
     rev: v1.29.0
     hooks:
       - id: yamllint
+        args: [-c=.yamllint.yaml]
   - repo: https://github.com/k8s-at-home/sops-pre-commit
     rev: v2.1.1
     hooks:
