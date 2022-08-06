@@ -1,5 +1,6 @@
 gitea:
   ingress:
+    apiVersion: networking.k8s.io/v1
     enabled: true
     className: nginx
     annotations:
