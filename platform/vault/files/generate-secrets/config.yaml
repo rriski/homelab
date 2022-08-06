@@ -12,6 +12,12 @@
       length: 32
       special: false
 
+- path: dex/argocd
+  data:
+    - key: client_secret
+      length: 32
+      special: false
+
 # Tekton
 - path: tekton/webhook
   data:

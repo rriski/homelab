@@ -17,6 +17,19 @@ argo-cd:
           end
         end
         return hs
+      dex.config: |
+        connectors:
+          - type: gitea
+            id: gitea
+            name: Gitea
+            config:
+              clientID: $GITEA_CLIENT_ID
+              clientSecret: $GITEA_CLIENT_SECRET
+              redirectURI: https://dex.timoriski.fi/callback
+              baseURL: https://git.timoriski.fi
+    envFrom:
+      - secretRef:
+          name: argocd-secrets
     ingress:
       enabled: true
       ingressClassName: nginx

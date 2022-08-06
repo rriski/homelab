@@ -22,6 +22,11 @@ dex:
         redirectURIs:
           - 'https://grafana.timoriski.fi/login/generic_oauth'
         secretEnv: GRAFANA_SSO_CLIENT_SECRET
+      - id: argocd-sso
+        name: ArgoCD
+        redirectURIs:
+          - 'https://argocd.timoriski.fi/api/dex/callback'
+        secretEnv: ARGOCD_SSO_CLIENT_SECRET
   envFrom:
     - secretRef:
         name: dex-secrets
