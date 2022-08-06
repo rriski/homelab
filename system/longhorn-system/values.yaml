@@ -2,5 +2,15 @@ longhorn:
   defaultSettings:
     nodeDownPodDeletionPolicy: delete-both-statefulset-and-deployment-pod
     defaultLonghornStaticStorageClass: longhorn
+  ingress:
+    enabled: true
+    ingressClassName: nginx
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt-prod
+      hajimari.io/appName: Lonhorn
+      hajimari.io/icon: server
+    host: longhorn.timoriski.fi
+    tlsSecret: longhorn-tls-certificate
+    tls: true
   persistence:
     defaultClassReplicaCount: 3
