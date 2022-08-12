@@ -175,6 +175,11 @@ spec:
             bound_service_account_namespaces: ["default", "vswh"]
             policies: ["allow_secrets", "allow_pki"]
             ttl: 1h
+          - name: argocd
+            bound_service_account_names: ["argocd-repo-server"]
+            bound_service_account_namespaces: ["argocd"]
+            policies: ["allow_secrets", "allow_pki"]
+            ttl: 24h
 
     secrets:
       - path: secret
