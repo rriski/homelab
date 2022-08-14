@@ -7,6 +7,9 @@ renovate:
         "platform": "gitea",
         "endpoint": "https://git.timoriski.fi/api/v1",
         "gitAuthor": "Renovate Bot <bot@renovateapp.com>",
-        "autodiscover": true
+        "autodiscover": true,
+        "binarySource": "docker"
       }
   existingSecret: renovate-secret
+  dind:
+    enabled: true
