@@ -1,11 +1,11 @@
 package main
 
-// TODO WIP clean up
-
 import (
 	"fmt"
 	"log"
 	"os"
+    "time"
+    "math/rand"
 
 	vault "github.com/hashicorp/vault/api"
 	"github.com/sethvargo/go-password/password"
@@ -22,6 +22,8 @@ type RandomPassword struct {
 }
 
 func main() {
+    rand.Seed(time.Now().UnixNano())
+
 	data, err := os.ReadFile("./config.yaml")
 
 	if err != nil {
@@ -52,7 +54,15 @@ func main() {
 			}
 
 			for _, randomKey := range randomPassword.Data {
-				res, err := password.Generate(32, 3, 3, false, true)
+                numDigits := rand.Intn(randomKey.Length / 2)
+                numSpecial := 0
+                if randomKey.Special {
+                    numSpecial = rand.Intn(randomKey.Length / 2)
+                }
+                // First argument is length, second is the number of digits, third is
+                // the number of special symbols, fourth is allowing uppercase and lowercase
+                // characters and fifth is allowing repeat characters
+				res, err := password.Generate(randomKey.Length, numDigits, numSpecial, false, true)
 				if err != nil {
 					log.Fatal(err)
 				}
@@ -68,7 +78,7 @@ func main() {
 				log.Println("Secret written successfully.")
 			}
 		} else {
-			log.Println("Key abc in secret already existed.")
+			log.Println("Key at path %s already exists.", path)
 		}
 	}
 }
