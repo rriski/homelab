@@ -57,12 +57,11 @@ dendrite:
       username: dendrite
       password: "<path:secret/data/db/passwords/#user-dendrite>"
       database: dendrite
-    persistence:
-      enabled: true
-      storageClass: longhorn
-      accessModes:
-        - ReadWriteOnce
-      size: 5Gi
+    primary:
+      persistence:
+        enabled: true
+        storageClass: longhorn
+        size: 5Gi
   tls_secret:
     enabled: true
     existingSecret: dendrite-tls-certificate

@@ -34,5 +34,8 @@ gitea:
       username: gitea
       password: "<path:secret/data/db/passwords/#user-gitea>"
       database: gitea
-    persistence:
-      storageClass: longhorn
+    primary:
+      persistence:
+        enabled: true
+        storageClass: longhorn
+        size: 5Gi
