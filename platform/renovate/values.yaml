@@ -6,6 +6,7 @@ renovate:
       {
         "platform": "gitea",
         "endpoint": "https://git.timoriski.fi/api/v1",
+        "token": "<path:secret/data/gitea/renovate#token>",
         "gitAuthor": "Renovate Bot <bot@renovateapp.com>",
         "autodiscover": true,
         "binarySource": "docker"
