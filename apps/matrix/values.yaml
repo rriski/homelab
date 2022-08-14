@@ -53,9 +53,10 @@ dendrite:
   postgresql:
     enabled: true
     auth:
-      database: dendrite
+      postgresPassword: "<path:secret/data/db/passwords#user-postgres>"
       username: dendrite
-      password: dendrite
+      password: "<path:secret/data/db/passwords/#user-dendrite>"
+      database: dendrite
     persistence:
       enabled: true
       storageClass: longhorn

@@ -24,3 +24,16 @@
     - key: token
       length: 32
       special: false
+
+# Databases
+- path: db/passwords
+  data:
+    - key: user-postgres
+      length: 32
+      special: false
+    - key: user-dendrite
+      length: 32
+      special: false
+    - key: user-gitea
+      length: 32
+      special: false

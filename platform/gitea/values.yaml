@@ -28,5 +28,11 @@ gitea:
   persistence:
     storageClass: longhorn
   postgresql:
+    enabled: true
+    auth:
+      postgresPassword: "<path:secret/data/db/passwords#user-postgres>"
+      username: gitea
+      password: "<path:secret/data/db/passwords/#user-gitea>"
+      database: gitea
     persistence:
       storageClass: longhorn
