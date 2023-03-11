@@ -8,14 +8,14 @@ metadata:
 spec:
   nodeSelector:
     matchExpressions:
-      - key: node-role.kubernetes.io/control-plane
+      - key: node-role.kubernetes.io/master
         operator: DoesNotExist
   serviceAccountName: system-upgrade
   prepare:
     image: rancher/k3s-upgrade
     args:
       - prepare
-      - k3s-server
+      - server-plan
   concurrency: 1
   cordon: true
   drain:
@@ -23,4 +23,4 @@ spec:
     skipWaitForDeleteTimeout: 300  # Honor PodDisruptionBudgets
   upgrade:
     image: rancher/k3s-upgrade
-  version: v1.24.9+k3s1
+  channel: https://update.k3s.io/v1-release/channels/stable
