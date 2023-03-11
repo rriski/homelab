@@ -199,11 +199,6 @@ They can't capture all the project's features, but they are sufficient to get a 
         <td>Cloud native solution for building CI/CD systems</td>
     </tr>
     <tr>
-        <td><img width="32" src="https://trow.io/trow.png"></td>
-        <td><a href="https://trow.io">Trow</a></td>
-        <td>Private container registry</td>
-    </tr>
-    <tr>
         <td><img width="32" src="https://simpleicons.org/icons/vault.svg"></td>
         <td><a href="https://www.vaultproject.io">Vault</a></td>
         <td>Secrets and encryption management system</td>
