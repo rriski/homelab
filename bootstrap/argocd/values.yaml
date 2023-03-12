@@ -71,11 +71,11 @@ argo-cd:
               clientSecret: $GITEA_CLIENT_SECRET
               redirectURI: https://dex.timoriski.fi/callback
               baseURL: https://git.timoriski.fi
-    env:
-      - name: GITEA_CLIENT_ID
-        value: "<path:secret/data/gitea/dex#client_id>"
-      - name: GITEA_CLIENT_SECRET
-        value: "<path:secret/data/gitea/dex#client_secret>"
+    # env:
+    #   - name: GITEA_CLIENT_ID
+    #     value: "<path:secret/data/gitea/dex#client_id>"
+    #   - name: GITEA_CLIENT_SECRET
+    #     value: "<path:secret/data/gitea/dex#client_secret>"
     ingress:
       enabled: true
       ingressClassName: nginx
