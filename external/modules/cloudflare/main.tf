@@ -14,8 +14,8 @@ data "http" "public_ipv4" {
 
 locals {
   public_ips = [
-    "${chomp(data.http.public_ipv4.body)}/32",
-    # "${chomp(data.http.public_ipv6.body)}/128"
+    "${chomp(data.http.public_ipv4.response_body)}/32",
+    # "${chomp(data.http.public_ipv6.response_body)}/128"
   ]
 }
 
