@@ -4,6 +4,10 @@ gitops:
 stacks:
   - name: bootstrap
     namespace: argocd  # Override default value
+    wave: 0
   - name: system
+    wave: 1
   - name: platform
+    wave: 2
   - name: apps
+    wave: 3
