@@ -35,11 +35,12 @@ tools:
 		--env "KUBECONFIG=${KUBECONFIG}" \
 		--volume "/var/run/docker.sock:/var/run/docker.sock" \
 		--volume $(shell pwd):$(shell pwd) \
-		--volume ${HOME}/.ssh:/root/.ssh \
+		--volume ${HOME}/.ssh:/.ssh:ro \
 		--volume ${HOME}/.terraform.d:/root/.terraform.d \
 		--volume homelab-tools-cache:/root/.cache \
 		--volume homelab-tools-nix:/nix \
 		--workdir $(shell pwd) \
+		--entrypoint $(shell pwd)/scripts/mount-ssh.sh \
 		nixos/nix nix-shell
 
 test:
