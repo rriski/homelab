@@ -1,5 +1,5 @@
 # https://status.nixos.org (nixpkgs-unstable)
-{ pkgs ? import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/e58a7747db96c23b8a977e7c1bbfc5753b81b6fa.tar.gz") {} }:
+{ pkgs ? import (fetchTarball "channel:nixpkgs-unstable") {} }:
 
 let
   python-packages = pkgs.python3.withPackages (p: with p; [
